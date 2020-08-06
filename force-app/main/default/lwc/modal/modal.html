@@ -1,0 +1,75 @@
+<!--
+  @Component Name     : modal.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 8/6/2019, 10:43:04 PM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  1.0    8/3/2019, 7:09:32 PM   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+        <template if:true={open}>
+            <div style="height:640px">
+                    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <lightning-button-icon class="slds-modal__close" icon-name="utility:close" onclick={closeModal}></lightning-button-icon>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Service Formular</h2>
+                            <p style="text-align: left" class="slds-m-top_x-small">* Mit dem Fromular beauftrage ich electronic loop Reparatur & Service mit der unten genannten Service-Dienstleistung für das unten
+                                    aufgefuhrte Gerät. Im Weiteren akzeptiere ich die allgemeinen Geschäftsbedingungen von electronic loop Reparatur & Service. </p>
+                        </header>
+
+                            <div class="slds-modal__content slds-p-around_medium">
+                              
+                                <lightning-input label="Firma" value={serviceFormular.Firma} onchange={handleFirma} ></lightning-input>
+                                <lightning-input label="Vorname/Name" value={serviceFormular.Name} onchange={handleNameChange} ></lightning-input>
+                                
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="text-input-id-1" id="inline-text-label">Ebay-Name*:</label>
+                                    <div class="slds-form-element__control">
+                                      <lightning-input value={serviceFormular.EbayName} onchange={handleEbayName}></lightning-input>
+                                      <div class="slds-form-element__help">*Falls die Bestellung uber ebay erfolgte.</div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <lightning-input required="" aria-describedby="error-message-unique-id" label="Email" placeholder="gleiche Email wie bei der Reparaturbestellung" value={serviceFormular.Contact__c} onchange={handleEmailChange}></lightning-input>
+                                <lightning-input label="Firma und Modell" placeholder="Modell des Gerätes" aria-labelledby="inline-text-label" value={serviceFormular.Hersteller_Modell__c} onchange={handleModel}></lightning-input>
+                                <lightning-input label="Seriennummer (SN)" aria-labelledby="inline-text-label" value={serviceFormular.Seriennummer__c} onchange={handleSeriennummer} ></lightning-input>
+                        
+                                <lightning-textarea name="input2" label="Fehlerbeschreibung" value={serviceFormular.Fehlerbeschreibung__c} onchange={handleFhlerbeschreibung}></lightning-textarea>
+                                </br>
+                                <h2>Vorgeschichte des Geräts (diese Punkte sind fur eine kurze Reparaturzeit sehr wichtig!):</h2></br>
+                                <lightning-input type="checkbox" label="Wurde das Gerät in einer anderen Werkstatt repariert?"  value={serviceFormular.ReparaturInAndererWerkstatt__c} onchange={handleReparaturInAndererWerkstatt} ></lightning-input>
+                                <lightning-input type="checkbox" label="War die Reparatur erfolgreich?"  value={serviceFormular.WarVorigeReparaturErfolgreich__c} onchange={handleWarVorigeReparaturErfolgreich} ></lightning-input>
+
+                                <lightning-textarea name="input3" label="Welche Diagnose wurde festgestellt?" value={serviceFormular.FestgestellteDiagnose__c} onchange={handleFestgestellteDiagnose}></lightning-textarea>
+                                </br>
+                                <lightning-input type="checkbox" label="Hatte das Gerät einen Sturz?"  value={serviceFormular.GeraetIstGestuerzt__c} onchange={handleGeraetIstGestuerzt} ></lightning-input>
+                                <lightning-input type="checkbox" label="Wurden Flussigkeiten auf das Gerät verschuttet?"  value={serviceFormular.FluessigkeitenAufDasGeraet__c} onchange={handleFluessigkeitenAufDasGeraet} ></lightning-input>
+                                </br>
+                                <lightning-textarea name="input4" label="Unter welchen Umständen trat der Defekt / Schaden auf?" value={serviceFormular.EintrittDesDfektesUmstaende__c} onchange={handleEintrittDesDfektesUmstaende}></lightning-textarea>
+                                <lightning-textarea name="input5" label="Weitere bekannte Defekte / Beschädigungen am Gerät:" value={serviceFormular.WeitereBekannteDefekte__c} onchange={handleWeitereBekannteDefekte}></lightning-textarea>
+
+                            <!--slot name="body"></slot-->
+                            </div>
+                            
+                            <footer class="slds-modal__footer">
+                                <template if:true={error}>
+                                  <div class="slds-text-color_error">                                   
+                                      <p>Beim Erstellen des Service-Formulars ist ein Fehler aufgetreten!{error}.</p>
+                                  </div>
+                                </template>
+                                  <button class="slds-button slds-button_neutral" onclick={closeModal}>Abbrechen</button>
+                                  <button class="slds-button slds-button_brand" onclick={handleClick}>Speichern</button>
+                            </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </template>
+    </template>

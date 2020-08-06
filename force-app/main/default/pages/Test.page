@@ -1,0 +1,42 @@
+<!--
+  @Page Name          : Test.page
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 7/31/2019, 3:03:42 PM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  1.0    7/31/2019, 11:46:28 AM   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<apex:page standardController="Case">
+
+
+    <apex:includeScript value="{!$Resource.BarcodeScript}"/>
+    <apex:detail relatedList="false"></apex:detail>
+    <br/>
+    <br/>
+    <div id="inputdata">{!Case.CaseNumber}</div>
+    <div id="externalbox" style="width:5in"></div>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    function get_object(id) {
+    
+       var object = null;
+       if (document.layers) {
+        object = document.layers[id];
+       } else if (document.all) {
+        object = document.all[id];
+       } else if (document.getElementById) {
+        object = document.getElementById(id);
+       }
+       return object;
+      }
+      get_object("inputdata").innerHTML=DrawCode39Barcode(get_object("inputdata").innerHTML,1);
+     /* ]]> */
+     
+    </script>
+</apex:page> 
+

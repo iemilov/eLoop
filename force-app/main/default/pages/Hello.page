@@ -1,0 +1,24 @@
+<apex:page standardController="Case">
+
+    <apex:pageBlock title="Ihre Reparatur bei Electornic Loop" >
+        <apex:pageBlockSection >
+            Bestellnummer: {! Case.CaseNumber } <br/>
+            Gerät: {! Case.ContactId } <br/>
+            Status: {! Case.Status } <br/>
+            Date: {! Case.LastModifiedDate } 
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="Ihr Reparaturfortschritt bei Electornic Loop">
+    <apex:pageBlockTable value="{!Case}" var="case" >
+      <apex:column value="{!Case.CaseNumber}"/>
+      <apex:column value="{!Case.Status}"/>
+      <apex:column value="{!Case.LastModifiedDate}"/>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+
+    <div class="footer">
+        <left><img src="{!$Resource.ElectronicLoopLogo}" width="5%"/></left>
+    </div>
+
+</apex:page>

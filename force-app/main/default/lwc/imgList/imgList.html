@@ -1,0 +1,44 @@
+<!--
+  @Component Name     : imgList.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 12/20/2019, 11:19:56 AM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  1.0    7/25/2019, 10:24:36 AM   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+	<!--lightning-card title="Lightning Web Component" icon-name="custom:custom14"-->
+		<div class="slds-m-around_medium">
+
+                        <!--template for:each={comments} for:item="img">
+                                <br key={img.Id}>
+                                <p key={img.Id}>
+                                        <img src={img.ImgUrl__c} width="400" height="400" />
+                                </p>
+                                <br key={img.Id}>
+                                <p key={img.Id}>
+                                        {img.ConvertedDate__c} - {img.Kommentar__c} 
+                                </p>
+                        </!--template-->
+
+                        <template for:each={images} for:item="img">
+                                <br key={img.Id}>
+                                <p key={img.Id}>
+                                        <img src={img.ImgUrl__c} width="400" height="400" />
+                                </p>
+                        </template>
+                        <template for:each={comments} for:item="com">
+                                <br key={com.Id}>
+                                <p key={com.Id}>
+                                        {com.ConvertedDate__c} - {com.Kommentar__c} 
+                                </p>
+                        </template>
+
+		</div>
+	<!--/lightning-card-->
+</template>

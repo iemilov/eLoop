@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/imgList": [
+                "imgList/imgList.js"
+            ],
+            "c/modal": [
+                "modal/modal.js"
+            ],
+            "c/trackServiceStatus": [
+                "trackServiceStatus/trackServiceStatus.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+<!--
+  @Page Name          : DisplayStatus.page
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 12/20/2019, 4:13:15 PM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  1.0    7/22/2019, 10:08:44 AM   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<apex:page showHeader="false" >
+    <style>
+        body{ background-color:#ddf1fb;  }
+    </style>
+    <apex:includeLightning />
+    <div id="lightning" />
+	<script>
+            $Lightning.use("c:trackServiceStatusApp", function() {
+                 $Lightning.createComponent("c:trackServiceStatus", {
+                       recordId: "{!$CurrentPage.parameters.id}"
+                     },
+                  "lightning",
+                  function(cmp) {
+                    console.log("LWC component was created");
+                    // do some stuff
+                  }
+              )
+            })
+  </script>
+</apex:page>

@@ -1,0 +1,88 @@
+<!--
+  @Component Name     : trackServiceStatus.html
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 12/20/2019, 4:12:37 PM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  1.0    7/22/2019, 9:59:22 AM   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+<template>
+    <br>
+    <lightning-card title ={caseNumber}>
+        <div class="slds-card__body slds-card__body_inner">
+            <img src= 'https://cunning-badger-ohlc1h-dev-ed--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0682E000004cNav&operationContext=DELIVERY&contentId=05T2E00000Eglmj&page=0&d=/a/2E000000Htoi/6nvpk5hqH5W5z3GnIhZ_..wJ4GKTOOu.G5Y2.VyFzus&oid=00D2E000001G1ML&dpt=null&viewId=' width="100" height="80" />
+        </div>
+        <div class="slds-text-align_center slds-text-title_bold slds-text-heading_medium">Let it "live" longer, save the resources!</div>
+        <lightning-button label="Service Formular" title="Service Formular" onclick={open} class="slds-m-left_x-small"></lightning-button>
+            <c-modal get-id-from-parent={recordId}>
+                <span slot="body">Modal body</span>
+            </c-modal> 
+             
+    </lightning-card>
+    <br>
+    
+    <lightning-card title="Ihr Reparaturfortschritt bei electronic Loop!" icon-name="custom:custom19">
+        <!--div class="slds-box slds-theme_shade slds-theme_alert-texture"-->
+            <!--div class="slds-card__body slds-card__body_inner"-->
+                
+                <template for:each={sObjData} for:item="sobKey">
+                    <br key={sobKey.Id}>
+                    <div key={sobKey.Id} class="slds-box slds-theme_info">
+                            <div class="slds-text-heading_small"> 
+                                <lightning-formatted-date-time 
+                                        value ={sobKey.CreatedDate}
+                                        year="numeric"
+                                        month="numeric"
+                                        day="numeric"
+                                        hour="2-digit"
+                                        minute="2-digit"
+                                        time-zone="Europe/Berlin"> 
+                                </lightning-formatted-date-time> 
+                                    - {sobKey.NewValue}
+                            </div>
+                        <c-img-list get-id-from-parent={recordId} item-name={sobKey.NewValue}> </c-img-list>
+                    </div>
+                </template>
+                
+            <!--/div-->
+            <!--table class="slds-table slds-table_cell-buffer slds-table_striped">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        
+                        <th scope="col">
+                            <div title="Key">Aktualisiert am</div>
+                        </th>
+                        <th scope="col">
+                            <div title="Value">aktuelles Status</div>
+                        </th>
+                        <th scope="col">
+                            <div title="Value">Bilder</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={sObjData} for:item="sobKey">
+                        <tr key={sobKey.Id}>
+                            <th scope="col">
+                                {sobKey.CreatedDate}
+                            </th>
+                            <th scope="col">
+                                {sobKey.NewValue}
+                            </th>
+                            <th scope="col">
+                    
+                                <img src ={rumbio} width="500" height="500" />
+
+                            </th>
+                        </tr>
+                    </template>
+                </tbody>
+            </table-->
+        <!--/div--> 
+    </lightning-card>
+</template>

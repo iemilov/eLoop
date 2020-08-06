@@ -1,0 +1,24 @@
+<apex:page standardController="Case" renderAs="pdf">
+    
+    <apex:pageBlock title="Bestellung">
+        <apex:pageBlockSection >
+            Bestellnummer: {! Case.CaseNumber } <br/> <br/>
+            
+            <table>
+                <tr>
+                  <td colspan="3">         
+                  <apex:outputField value="{!Case.ServiceCode__c}"/>
+                  </td>
+                </tr>
+             </table>
+
+            <br/> <br/> <br/>
+            Bitte drücken Sie diesen ServiceCode aus und legen Sie ihn in Ihrem Versandtpacket bei!
+            <br/><br/>
+            Mit freundlichem Gruß
+            <br/>
+            Ihr Team von electronic loop Reparatur and Service            
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+</apex:page>

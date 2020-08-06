@@ -1,0 +1,161 @@
+<!--
+  @Page Name          : ServiceFormular.page
+  @Description        : 
+  @Author             : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Group              : 
+  @Last Modified By   : ChangeMeIn@UserSettingsUnder.SFDoc
+  @Last Modified On   : 8/2/2019, 9:43:05 AM
+  @Modification Log   : 
+  ==============================================================================
+  Ver         Date                     Author      		      Modification
+  ==============================================================================
+  1.0    7/31/2019, 4:45:50 PM   ChangeMeIn@UserSettingsUnder.SFDoc     Initial Version
+-->
+
+<apex:page standardController="Case" renderAs='pdf'>
+
+    <table className="padding-table-columns">
+            <tbody>
+                <tr>
+                    <th><span style="width:25px" id="theFirst">    </span></th>
+                    <th><span id="theFirst"></span></th>
+                    <th><span id="theFirst"></span></th>
+                </tr>
+                <tr>
+                    <td><span style="font-size: 13px;" id="theFirst">electronic loop Reparatur and Service</span></td>
+                    <td><span style="font-size: 13px;position:absolute;left:295.40px;top:18.00px">email: service@electronicloop.de</span></td>
+                    <td><span style="position:absolute;left:595.40px;top:19.00px"> 
+                        <img src="{!$Resource.ElectronicLoopLogo}" width="70" height="70"/>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span style="font-size: 13px;" id="theFirst">Gehrenseestr. 19</span></td>
+                    <td><span style="font-size: 13px;position:absolute;left:295.40px;top:39.00px" id="theFirst">telefon: +49 (0)30 239 243 50</span></td>
+                </tr>
+                <tr>
+                    <td><span style="font-size: 13px;" id="theFirst">13053 Berlin</span></td>
+                </tr>
+                <tr>
+                    <td><span style="font-size: 13px;" id="theFirst">13053 Deutschland</span></td>
+                    <td><span style="position:absolute;left:295.40px;top:81.00px;font-size: 13px;font-weight: bold" id="theFirst">Lass es länger „leben“, schone die Ressourcen!</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    <apex:outputText value="_________________________________________________________________________________________" /> <br/>
+    <div style="position:absolute;left:630.40px;top:125.00px;">
+        <apex:outputField value="{!Case.ServiceCode__c}"/>
+    </div>
+    <div style="font-size: 15px;font-weight: bold">
+        <apex:outputText value="Service-Formular: Mainboard- / Logicboard-Reparatur" />
+    </div>
+    <div style="font-size: 15px;">
+        <apex:outputText value="Bitte das Service-Formular sorgfältig ausfüllen, ausdrucken und dem Gerät beilegen." />
+    </div>
+    <br/>
+
+    <div style="font-size: 15px;font-weight: bold">
+            <apex:outputText value="Kundendaten:" />
+    </div>
+    <div style="font-size: 14px;">
+            <apex:outputText value="Firma:" /> <br/>
+            <apex:outputText value="Vorname / Name:" /> <br/>
+            <apex:outputText value="Ebay-Name*:" /> <br/>
+            <apex:outputText value="Email:" /><br/>
+    </div>
+    
+    <div style="font-size: 14px; position:absolute;left:395.40px;top:205.00px;">
+            <apex:outputText value="Straße / Nr.:" />
+    </div>
+    <div style="font-size: 14px; position:absolute;left:395.40px;top:224.00px;">
+            <apex:outputText value="PLZ / Ort:" />
+    </div>
+    <div style="font-size: 14px; position:absolute;left:395.40px;top:242.00px;">
+            <apex:outputText value="Land:" />
+    </div>
+    <br/>
+    <apex:outputText style="font-size: 14px;" value="*Falls die Bestellung über ebay erfolgte." /><br/> <br/>
+   
+    <div style="font-size: 15px;font-weight: bold">
+            <apex:outputText value="Gerätedaten:" />
+    </div>
+    
+    <apex:outputText style="font-size: 14px;" value="Firma und Modell:" /> <br/>
+    <apex:outputText style="font-size: 14px;" value="Seriennummer (SN):" /> <br/> <br/>
+
+    <div style="font-size: 15px;font-weight: bold">
+            <apex:outputText value="Fehlerbeschreibung:" />
+    </div>  <br/> <br/> <br/>
+
+    <div style="font-size: 15px;font-weight: bold">
+            <apex:outputText value="Vorgeschichte des Geräts (diese Punkte sind für eine kurze Reparaturzeit sehr wichtig!):" />
+    </div>
+
+    <apex:outputText style="font-size: 14px;" value="Wurde das Gerät in einer anderen Werkstatt repariert?" /> <br/>
+    <apex:outputText style="font-size: 14px;position:absolute;left:480.40px;top:485.0px;" value="Ja" />
+    <div style="position:absolute;left:495.40px;top:484.0px;">
+        <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+    <apex:outputText style="font-size: 14px; position:absolute;left:545.40px;top:485.0px;" value="Nein" />
+    <div style="position:absolute;left:575.40px;top:484.0px;">
+            <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+
+    <apex:outputText style="font-size: 14px;" value="War die Reparatur erfolgreich?" /> <br/> <br/>
+    <apex:outputText style="font-size: 14px; position:absolute;left:480.40px;top:506.0px;" value="Ja" />
+    <div style="position:absolute;left:495.40px;top:505.0px;">
+        <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+    <apex:outputText style="font-size: 14px;position:absolute;left:545.40px;top:506.0px;" value="Nein" />
+    <div style="position:absolute;left:575.40px;top:505.0px;">
+            <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+    
+    <apex:outputText style="font-size: 14px;" value="Welche Diagnose wurde festgestellt?" /> <br/> <br/> <br/> <br/> <br/>
+
+    <apex:outputText style="font-size: 14px;" value="Hatte das Gerät einen Sturz?" /> <br/>
+    <apex:outputText style="font-size: 14px; position:absolute;left:480.40px;top:622.0px;" value="Ja" />
+    <div style="position:absolute;left:495.40px;top:621.0px;">
+        <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+    <apex:outputText style="font-size: 14px; position:absolute;left:545.40px;top:622.0px;" value="Nein" />
+    <div style="position:absolute;left:575.40px;top:621.0px;">
+            <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+
+    <apex:outputText style="font-size: 14px;" value="Wurden Flüssigkeiten auf das Gerät verschüttet?" /> <br/><br/>
+    <apex:outputText style="font-size: 14px; position:absolute;left:480.40px;top:643.0px;" value="Ja" />
+    <div style="position:absolute;left:495.40px;top:642.0px;">
+        <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+    <apex:outputText style="font-size: 14px; position:absolute;left:545.40px;top:643.0px;" value="Nein" />
+    <div style="position:absolute;left:575.40px;top:642.0px;">
+            <img src ="/img/checkbox_unchecked.gif" width="21" height="21"/>
+    </div>
+
+    <apex:outputText style="font-size: 14px;" value="Unter welchen Umständen trat der Defekt / Schaden auf?" /> <br/> <br/> <br/><br/>
+    
+    <apex:outputText style="font-size: 14px;" value="Weitere bekannte Defekte / Beschädigungen am Gerät:" /> <br/> <br/> <br/> <br/> <br/>
+
+    <div style="font-size: 15px;font-weight: bold">
+            <apex:outputText value="Ort" />
+    </div>
+
+    <div style="font-size: 15px;font-weight: bold; position:absolute;left:300.40px;top:840.0px;">
+            <apex:outputText value="Datum" />
+    </div>
+
+    <div style="font-size: 15px;font-weight: bold; position:absolute;left:500.40px;top:840.0px;">
+            <apex:outputText value="Unterschrift" />
+    </div>
+
+    <apex:outputText value="_________________________________________________________________________________________" /> <br/>
+    <div style="font-size: 13px;">
+        <apex:outputText value="* Mit der Unterschrift beauftrage ich electronic loop Reparatur & Service mit der oben genannten Service-Dienstleistung für das oben
+    aufgeführte Gerät. Im Weiteren akzeptiere ich die allgemeinen Geschäftsbedingungen von electronic loop Reparatur & Service." /> <br/>
+    </div>
+
+
+</apex:page>
