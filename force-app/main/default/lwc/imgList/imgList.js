@@ -29,7 +29,7 @@ export default class ImgList extends LightningElement {
             this.images = result.data;
         }
     }
-
+    //hh
     @wire(getComments, {caseId :'$getIdFromParent', status :'$currentstatus'})
     LoadComments(result) {
         if (result.data) {
